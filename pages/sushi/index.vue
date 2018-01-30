@@ -2,17 +2,24 @@
 <div id="sushi-list">
   <ul>
     <li v-for="(item) in sushiList" v-bind:key="item.name">
-      {{item.name}}</li>
+      {{item.name}}: {{item.price}}円</li>
   </ul>
 </div>
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   data: function() {
     return {
       sushiList: [{ name: 'まぐろ' }, { name: 'かじき' }]
     }
+  },
+  asyncData(context) {
+    return axios.get('http://localhost:3000/api/sushi').then((res) => {
+      return { sushiList: res.data }
+    })
   }
 }
 </script>
