@@ -14,4 +14,14 @@ router.get('/sushi', function(req, res, next) {
   res.json(sushi)
 })
 
+// Get by Id
+router.get('/sushi/:id', function(req, res, next) {
+  const id = parseInt(req.params.id)
+  if (id >= 0 && id < sushi.length) {
+    res.json(sushi[id])
+  } else {
+    res.sendStatus(404)
+  }
+})
+
 export default router
