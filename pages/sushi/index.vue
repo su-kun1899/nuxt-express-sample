@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+import axios from '~/plugins/axios'
 
 export default {
   data: function() {
@@ -17,7 +17,7 @@ export default {
     }
   },
   asyncData(context) {
-    return axios.get('http://localhost:3000/api/sushi').then((res) => {
+    return axios.get('/api/sushi').then(res => {
       return { sushiList: res.data }
     })
   }
