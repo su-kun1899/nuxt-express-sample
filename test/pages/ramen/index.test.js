@@ -1,4 +1,4 @@
-import { mount } from 'vue-test-utils'
+import { mount, shallow } from 'vue-test-utils'
 import index from '../../../pages/ramen/index.vue'
 
 // 直接test()を書くこともできるが、
@@ -12,6 +12,9 @@ describe('ramenList', () => {
     // プロパティやメソッドにアクセス可能になる
     // またDOMにも仮想DOMとしてアクセスできるようになる模様
     wrapper = mount(index)
+
+    // shallowの場合はサブコンポーネントがレンダリングされない
+    // wrapper = shallow(index)
   })
 
   test('ラーメンリストの先頭がしょうゆ', () => {
