@@ -1,7 +1,7 @@
 <template>
 <div id="sushi-list">
   <ul>
-    <li v-for="(item) in sushiList" v-bind:key="item.name">
+    <li v-for="item in sushiList" v-bind:key="item.name">
       {{item.name}}: {{item.price}}円</li>
   </ul>
 </div>
