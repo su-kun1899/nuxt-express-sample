@@ -43,6 +43,8 @@ body > .el-container {
 </style>
 
 <script>
+import axios from '~/plugins/axios'
+
 export default {
   data: function() {
     return {
@@ -50,7 +52,15 @@ export default {
     }
   },
   methods: {
-    showOnikuMenu: function() {
+    showOnikuMenu: async function() {
+      const random = Math.floor(Math.random() * 2) + 1
+      if (random % 2 === 0) {
+        let { data } = await axios.get('/api/oniku')
+        this.onikuMenu = data
+
+        return
+      }
+
       this.onikuMenu = [
         {
           name: 'カルビ',
