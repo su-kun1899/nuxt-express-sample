@@ -4,7 +4,7 @@
   <el-main>
     <el-row>
       <el-col :span="24">
-        <el-table :data="tableData" style="width: 100%" align="left">
+        <el-table :data="onikuMenu" style="width: 100%" align="left" v-show="onikuMenu.length > 0">
           <el-table-column prop="name" label="Name"></el-table-column>
           <el-table-column prop="price" label="Price"></el-table-column>
         </el-table>
@@ -13,7 +13,7 @@
 
     <el-row>
       <el-col :span="24">
-        <el-button type="primary" icon="el-icon-search">Oniku</el-button>
+        <el-button type="primary" icon="el-icon-search" v-on:click="showOnikuMenu">Oniku</el-button>
       </el-col>
     </el-row>
   </el-main>
@@ -46,7 +46,12 @@ body > .el-container {
 export default {
   data: function() {
     return {
-      tableData: [
+      onikuMenu: []
+    }
+  },
+  methods: {
+    showOnikuMenu: function() {
+      this.onikuMenu = [
         {
           name: 'カルビ',
           price: '100円'
