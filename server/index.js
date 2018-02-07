@@ -10,8 +10,9 @@ const port = process.env.PORT || 3000
 var expressWs = require('express-ws')(app)
 
 app.ws('/api/chat', function(ws, req) {
-  ws.on('message', function(msg) {
-    console.log('from server: ' + msg)
+  ws.on('message', function (msg) {
+    console.log('recieve message:' + msg)
+    ws.send('from server: ' + msg)
   })
 })
 
