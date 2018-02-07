@@ -7,15 +7,13 @@ const app = express()
 const host = process.env.HOST || '127.0.0.1'
 const port = process.env.PORT || 3000
 
-
-var expressWs = require('express-ws')(app);
+var expressWs = require('express-ws')(app)
 
 app.ws('/api/chat', function(ws, req) {
   ws.on('message', function(msg) {
-    console.log(msg);
-  });
-});
-
+    console.log('from server: ' + msg)
+  })
+})
 
 app.set('port', port)
 
