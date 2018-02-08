@@ -8,7 +8,8 @@
 </template>
 
 <script>
-const W3CWebSocket = require('websocket').w3cwebsocket
+import { w3cwebsocket } from 'websocket'
+const W3CWebSocket = w3cwebsocket
 
 export default {
   data: function() {
