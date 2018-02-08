@@ -13,7 +13,7 @@ const W3CWebSocket = require('websocket').w3cwebsocket
 export default {
   data: function() {
     return {
-      socket: new W3CWebSocket('ws://localhost:3000/api/chat', 'echo-protocol'),
+      socket: new W3CWebSocket('ws://localhost:3000/api/chat'),
       message: '',
       answer: ''
     }
