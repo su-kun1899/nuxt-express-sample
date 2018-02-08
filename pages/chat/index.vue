@@ -1,8 +1,9 @@
 <template>
   <div>
-    <textarea />
-    <p v-cloak>socket: {{testField}}</p>
+    <textarea v-model="message"></textarea>
+    <br/>
     <button v-on:click="send">送信</button>
+    <p>You recieved message: <b>{{answer}}</b></p>
   </div>
 </template>
 
@@ -13,22 +14,21 @@ export default {
   data: function() {
     return {
       socket: new W3CWebSocket('ws://localhost:3000/api/chat', 'echo-protocol'),
-      testField: 'aaa'
+      message: '',
+      answer: ''
     }
   },
   created: function() {
     const self = this
     self.socket.onmessage = function(e) {
       if (typeof e.data === 'string') {
-        console.log("Received: '" + e.data + "'")
-        self.testField = e.data
+        self.answer = e.data
       }
     }
   },
   methods: {
     send: function() {
-      console.log(this.socket)
-      this.socket.send('hello')
+      this.socket.send(this.message)
     }
   }
 }
