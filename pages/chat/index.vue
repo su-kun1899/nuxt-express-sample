@@ -34,6 +34,7 @@ export default {
   methods: {
     send: function() {
       this.socket.send(this.newMessage)
+      this.newMessage = ''
     }
   }
 }
