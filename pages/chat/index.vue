@@ -14,7 +14,7 @@ const W3CWebSocket = w3cwebsocket
 export default {
   data: function() {
     return {
-      socket: new W3CWebSocket('ws://localhost:3000/api/chat'),
+      socket: new W3CWebSocket('ws://localhost:3000/ws/chat'),
       message: '',
       answer: ''
     }
