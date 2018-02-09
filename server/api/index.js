@@ -2,13 +2,13 @@ import { Router } from 'express'
 
 import users from './users'
 import sushi from './sushi'
+import oniku from './oniku'
 
 const router = Router()
 
-// Add USERS Routes
+// Add Routes
 router.use(users)
-
-// Add Sushi Routes
 router.use(sushi)
+router.use(oniku)
 
 export default router
