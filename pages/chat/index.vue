@@ -33,6 +33,7 @@ export default {
   },
   methods: {
     send: function() {
+      console.log(process.env.SAMPLE_ENV)
       this.socket.send(this.newMessage)
       this.newMessage = ''
     }

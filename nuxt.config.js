@@ -34,5 +34,6 @@ module.exports = {
       }
     }
   },
-  plugins: ['~plugins/element-ui']
+  plugins: ['~plugins/element-ui'],
+  modules: [['@nuxtjs/dotenv', { only: ['SAMPLE_ENV'] }]]
 }
